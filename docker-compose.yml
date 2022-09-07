@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password@123
+    ports:
+      - "0.0.0.0:1433:1433"
+    volumes:
+      - ./tmp/data:/var/opt/mssql/data
+      - ./tmp/log:/var/opt/mssql/log
+      - ./tmp/secrets:/var/opt/mssql/secrets
